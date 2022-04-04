@@ -49,7 +49,7 @@ function LoginPage() {
       <HowToRegIcon sx={{ transform: "scale(3)" }} />
       <h1>Sign Up</h1>
       <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={myValidationSchema}>
-        {({ values, handleChange,handleSubmit,errors,touched}) => (
+        {({ values, handleChange,handleSubmit,errors,touched,handleBlur}) => (
           <form className="box" onSubmit={handleSubmit}>
             <TextField
               name="firstname"
@@ -59,6 +59,7 @@ function LoginPage() {
               onChange={handleChange}
               helperText={touched.firstname&&errors.firstname}
               error={touched.firstname&&Boolean(errors.firstname)}
+              onBlur={handleBlur}
             />
             <TextField
               name="lastname"
@@ -68,6 +69,7 @@ function LoginPage() {
               onChange={handleChange}
               helperText={touched.lastname&&errors.lastname}
               error={touched.lastname&&Boolean(errors.lastname)}
+              onBlur={handleBlur}
             />
             <TextField
               id="email"
@@ -77,6 +79,7 @@ function LoginPage() {
               onChange={handleChange}
               helperText={touched.email&&errors.email}
               error={touched.email&&Boolean(errors.email)}
+              onBlur={handleBlur}
             />
             <TextField
               name="password"
@@ -87,6 +90,7 @@ function LoginPage() {
               type="password"
               helperText={touched.password&&errors.password}
               error={touched.password&&Boolean(errors.password)}
+              onBlur={handleBlur}
             />
             <TextField
               name="password2"
@@ -97,6 +101,7 @@ function LoginPage() {
               type="password"
               helperText={touched.password2&&errors.password2}
               error={touched.password2&&Boolean(errors.password2)}
+              onBlur={handleBlur}
             />
             <div style={{ display: "flex", justifyContent: "center" }}>
               <Button variant="contained" color="success" sx={{ width: "30%" }} type="submit">
